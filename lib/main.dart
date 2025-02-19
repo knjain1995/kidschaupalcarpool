@@ -1,22 +1,22 @@
-import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'login_screen.dart'; // Import login screen
+import 'package:flutter/material.dart';               // Core Flutter UI components
+import 'package:firebase_core/firebase_core.dart';    // Firebase core functionality
+import 'login_screen.dart';                           // Import login screen
 
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();          // Ensures that Flutter engine is initialized before running Firebase
+  await Firebase.initializeApp();                     // Initializes Firebase services
+  runApp(MyApp());                                    // Starts the application
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,                // Removes the debug banner
       title: 'KidsChaupalCarpool',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: LoginScreen(), // Navigate to login screen
+      theme: ThemeData(primarySwatch: Colors.blue),   // Sets the theme color
+      home: LoginScreen(),                              // Starts the app at the LoginScreen
     );
   }
 }
