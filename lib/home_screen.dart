@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // For Firebase authentication
 import 'profile_screen.dart'; // Screen for user profile
 import 'login_screen.dart'; // Screen to return to after logout
+import 'offer_ride_screen.dart'; // Offer Ride screen
+import 'my_rides_screen.dart'; // My Rides screen
 
 // Create a StatelessWidget for the home screen
 class HomeScreen extends StatelessWidget {
@@ -48,9 +50,43 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       // Main body of the home screen
-      body: Center(
-        // Welcome message centered on screen
-        child: Text("Welcome to KidsChaupalCarpool!"),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center, // Center items vertically
+          children: [
+            // Button to offer a ride
+            ElevatedButton.icon(
+              icon: Icon(Icons.add_circle_outline), // Icon for Offer Ride
+              label: Text("Offer a Ride"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OfferRideScreen()), // Navigate to Offer Ride screen
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 50), // Full-width button
+              ),
+            ),
+            SizedBox(height: 20), // Spacing between buttons
+
+            // Button to view user's rides
+            ElevatedButton.icon(
+              icon: Icon(Icons.directions_car), // Icon for My Rides
+              label: Text("My Rides"),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyRidesScreen()), // Navigate to My Rides screen
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 50), // Full-width button
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
