@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart'; // For fetching rides from Firestore
 import 'package:firebase_auth/firebase_auth.dart'; // To get current user
+import 'package:intl/intl.dart'; // For date formatting
 
 class MyRidesScreen extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance; // Firebase Authentication instance
@@ -38,7 +39,10 @@ class MyRidesScreen extends StatelessWidget {
                 child: ListTile(
                   title: Text("${data['pickup']} ➔ ${data['drop']}"),
                   subtitle: Text(
-                      "Date: ${data['departureDate'].toString().split('T')[0]} \nTime: ${data['departureTime']} \nSeats: ${data['seats']} \nPrice: ₹${data['pricePerSeat']} per seat"),
+                      "Date: ${DateFormat('dd-MM-yyyy').format(DateTime.parse(data['departureDate']))}\n"
+                      "Time: ${data['departureTime']}\n"
+                      "Seats: ${data['seats']}\n"
+                      "Price: ₹${data['pricePerSeat']} per seat"),
                 ),
               );
             }).toList(),

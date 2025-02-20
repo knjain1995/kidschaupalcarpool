@@ -2,6 +2,8 @@ import 'package:flutter/material.dart'; // Flutter framework for UI components
 import 'package:cloud_firestore/cloud_firestore.dart'; // For storing ride data in Firebase Firestore
 import 'package:firebase_auth/firebase_auth.dart'; // For getting the current user ID
 import 'my_rides_screen.dart'; // After offering a ride, we will redirect users here
+import 'package:intl/intl.dart'; // Import intl for date formatting
+
 
 class OfferRideScreen extends StatefulWidget {
   @override
@@ -117,7 +119,7 @@ class _OfferRideScreenState extends State<OfferRideScreen> {
                       onPressed: () => _pickDate(context),
                       child: Text(selectedDate == null
                           ? "Pick Date"
-                          : "Date: ${selectedDate!.toLocal()}".split(' ')[0]),
+                          : "Date: ${DateFormat('dd-MM-yyyy').format(selectedDate!)}"), // Date displayed properly
                     ),
                   ),
                   SizedBox(width: 10),
