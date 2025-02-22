@@ -5,6 +5,8 @@ import 'profile_screen.dart'; // Screen for user profile
 import 'login_screen.dart'; // Screen to return to after logout
 import 'offer_ride_screen.dart'; // Offer Ride screen
 import 'my_rides_screen.dart'; // My Rides screen
+import 'search_rides_screen.dart'; // Import the new search screen
+
 
 // Create a StatelessWidget for the home screen
 class HomeScreen extends StatelessWidget {
@@ -55,6 +57,19 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center, // Center items vertically
           children: [
+            ElevatedButton.icon(
+              icon: Icon(Icons.search),
+              label: Text("Search for Rides"), // 🔍 New button for searching rides
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SearchRidesScreen()));
+              },
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 50),
+              ),
+            ),
+            
+            SizedBox(height: 20),
+
             // Button to offer a ride
             ElevatedButton.icon(
               icon: Icon(Icons.add_circle_outline), // Icon for Offer Ride
