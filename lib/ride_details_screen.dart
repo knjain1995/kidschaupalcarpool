@@ -131,9 +131,9 @@ class _RideDetailsScreenState extends State<RideDetailsScreen> {
                       style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                     )
                   else if (requestStatus == "accepted")
-                    Text("✅ Your request has been accepted! 🎉", style: TextStyle(color: Colors.green, fontSize: 16))
+                    Text("Your request has been accepted! 🎉", style: TextStyle(color: Colors.green, fontSize: 16))
                   else if (requestStatus == "rejected")
-                    Text("❌ Your request was rejected.", style: TextStyle(color: Colors.red, fontSize: 16)),
+                    Text("Your request was rejected.", style: TextStyle(color: Colors.red, fontSize: 16)),
                 ],
               ),
             ),
