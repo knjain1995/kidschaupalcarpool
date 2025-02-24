@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart'; // Flutter's UI toolkit
 import 'package:cloud_firestore/cloud_firestore.dart'; // Firestore for querying rides
-import 'package:intl/intl.dart'; // For date formatting
+import 'package:intl/intl.dart';
+import 'package:kidschaupalcarpool/ride_details_screen.dart'; // For date formatting
 
 class SearchRidesScreen extends StatefulWidget {
   @override
@@ -142,6 +143,14 @@ class _SearchRidesScreenState extends State<SearchRidesScreen> {
                           "Seats: ${ride['seats']} available\n"
                           "Price: ₹${ride['pricePerSeat']} per seat",
                         ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RideDetailsScreen(rideId: matchedRides[index].id), // 🔗 Passing ride ID
+                            ),
+                          );
+                        },
                       ),
                     );
                   },
