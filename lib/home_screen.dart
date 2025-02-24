@@ -1,6 +1,7 @@
 // Import required Flutter and Firebase packages
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // For Firebase authentication
+import 'package:kidschaupalcarpool/manage_requests_screen.dart';
 import 'profile_screen.dart'; // Screen for user profile
 import 'login_screen.dart'; // Screen to return to after logout
 import 'offer_ride_screen.dart'; // Offer Ride screen
@@ -98,6 +99,19 @@ class HomeScreen extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 50), // Full-width button
+              ),
+            ),
+            
+            SizedBox(height: 20),
+            ElevatedButton.icon(
+              icon: Icon(Icons.manage_accounts),
+              label: Text("Manage Ride Requests"), // ✅ NEW Button
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => ManageRequestsScreen()));
+              },
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 50),
               ),
             ),
           ],
